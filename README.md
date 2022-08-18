@@ -2,6 +2,7 @@
 
 Cambio introducido desde el terminal, segundo commit usando SSH
 Cambio conflicto con merge de feature
+
 Plataforma voto electrónico educativa
 =====================================
 
