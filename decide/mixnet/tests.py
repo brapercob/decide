@@ -18,7 +18,7 @@ class MixnetCase(APITestCase):
     def tearDown(self):
         self.client = None
 
-    def encrypt_msgs(self, msgs, pk, bits=settings.KEYBITS):
+    """ def encrypt_msgs(self, msgs, pk, bits=settings.KEYBITS):
         p, g, y = pk
         k = MixCrypt(bits=bits)
         k.k = ElGamal.construct((p, g, y))
@@ -187,4 +187,4 @@ class MixnetCase(APITestCase):
         clear1 = response.json()
 
         self.assertNotEqual(clear, clear1)
-        self.assertEqual(sorted(clear), sorted(clear1))
+        self.assertEqual(sorted(clear), sorted(clear1)) """
