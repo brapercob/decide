@@ -141,7 +141,7 @@ class AuthTestCase(APITestCase):
 class AdminTestCase(StaticLiveServerTestCase):
 
     def setUp(self):
-      	#Load base test functionality for decide
+
       	self.base = BaseTestCase()
       	self.base.setUp()
 
@@ -149,19 +149,19 @@ class AdminTestCase(StaticLiveServerTestCase):
       	options.headless = True
       	self.driver = webdriver.Chrome(options=options)
 
-      	super().setUp()            
-            
-   	def tearDown(self):           
-      	super().tearDown()
+      	super().setUp()
+
+   	def tearDown(self):
+        super().tearDown()
         self.driver.quit()
 
         self.base.tearDown()
 
-	def test_simpleCorrectLogin(self):                    
+	def test_simpleCorrectLogin(self):
         self.driver.get(f'{self.live_server_url}/admin/')
     	self.driver.find_element_by_id('id_username').send_keys("admin")
     	self.driver.find_element_by_id('id_password').send_keys("qwerty",Keys.ENTER)
 
     	print(self.driver.current_url)
-    	#In case of a correct loging, a element with id 'user-tools' is shown in the upper right part        	
+    	#In case of a correct loging, a element with id 'user-tools' is shown in the upper right part
         self.assertTrue(len(self.driver.find_elements_by_id('user-tools'))==1)
