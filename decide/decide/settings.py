@@ -70,8 +70,6 @@ MODULES = [
     'voting',
 ]
 
-BASEURL = 'https://egc-app-decide-brapercob.herokuapp.com'
-
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -164,6 +162,20 @@ KEYBITS = 256
 ALLOWED_VERSIONS = ['v1', 'v2']
 DEFAULT_VERSION = 'v1'
 
+BASEURL = 'https://egc-app-decide-brapercob.herokuapp.com/'
+
+APIS = {
+    'authentication': BASEURL,
+    'base': BASEURL,
+    'booth': BASEURL,
+    'census': BASEURL,
+    'mixnet': BASEURL,
+    'postproc': BASEURL,
+    'store': BASEURL,
+    'visualizer': BASEURL,
+    'voting': BASEURL,
+}
+
 try:
     from local_settings import *
 except ImportError:
@@ -180,7 +192,6 @@ if os.path.exists("config.jsonnet"):
 
 INSTALLED_APPS = INSTALLED_APPS + MODULES
 
-APIS = {}
 
 import django_heroku
 django_heroku.settings(locals())
