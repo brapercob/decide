@@ -26,4 +26,4 @@ deploy:
   provider: heroku
   app: egc-app-decide-brapercob
   strategy: git
-  apikey: $HEROKU_API_KEY
+  apikey: ${{secrets.HEROKU_API_KEY}}
