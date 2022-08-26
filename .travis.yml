@@ -18,6 +18,12 @@ install:
   - pip install selenium
 script:
   - cd decide
-  - coverage run --omit /egc/* --branch --source=. ./manage.py test --keepdb --with-xunit
+  - cp travis_local_settings.py local_settings.py
+  - coverage run --omit /egc/* --branch --source=. ./manage.py test mixnet --keepdb --with-xunit
   - coverage xml
   - python-codacy-coverage -r coverage.xml
+deploy:
+  provider: heroku
+  app: egc-app-decide-brapercob
+  strategy: git
+  apikey: $HEROKU_API_KEY
